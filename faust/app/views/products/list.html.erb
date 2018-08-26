@@ -1,2 +1,41 @@
 <h1>Products#list</h1>
-<p>Find me in app/views/products/list.html.erb</p>
+
+<%# @products %>
+
+<table>
+    <thead>
+        <tr>
+            <th> Product ID </th>
+            <th> Item </th>
+            <th> Description </th>
+            <th> Price </th>
+            <th> Condition </th>
+            <th> Width </th>
+            <th> Length </th>
+            <th> Height </th>
+            <th> Image </th>
+            <th> Qty. </th>
+            <th> Category </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @products.each do |product| %>
+            <tr>
+                <td><%= product.pid %></td>
+                <td><%= product.item %></td>
+                <td><%= product.description %></td>
+                <td><%= product.price %></td>
+                <td><%= product.condition %></td>
+                <td><%= product.dimension_w %></td>
+                <td><%= product.dimension_l %></td>
+                <td><%= product.dimension_h %></td>
+                <td><%= product.img_file %></td>
+                <%# <td><%= image_tag("/app/assets/images/#{product.img_file}.jpg", size: "20", class: "product_tn") </td> %>
+                <td><%= product.quantity %></td>
+                <td><%= product.category %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<% %>
