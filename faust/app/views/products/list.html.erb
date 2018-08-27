@@ -19,22 +19,31 @@
     </thead>
     <tbody>
         <% @products.each do |product| %>
-            <tr>
-                <td><%= product.pid %></td>
-                <td><%= product.item %></td>
-                <td><%= product.description %></td>
-                <td><%= product.price %></td>
-                <td><%= product.condition %></td>
-                <td><%= product.dimension_w %></td>
-                <td><%= product.dimension_l %></td>
-                <td><%= product.dimension_h %></td>
-                <%# <td>image_tag "#{@product.img_file}", size: "20" %>
-                <%# Why is this not pulling an image over? Think it has to do with the path it's following. %>
-                <td><%= product.img_file %></td>
-                <td><%= product.quantity %></td>
-                <td><%= product.category %></td>
-                <td><%= link_to 'View Details', "/products/#{product.pid}" %></td>
-            </tr>
+            <% if product.quantity === "0"
+            else %>
+               <tr>
+                   <td><%= product.pid %></td>
+                   <td><%= product.item %></td>
+                   <td><%= product.description %></td>
+                   <td>$ <% if product.condition === "good" %>
+                         <%= discounted_price = product.price.to_i * 0.9 %></td>
+                         <% elsif product.condition === "average" %>
+                         <%= discounted_price = product.price.to_i * 0.8 %></td>
+                         <% else %>
+                            <%= product.price %>   
+                            <% end %>
+                   <td><%= product.condition %></td>
+                   <td><%= product.dimension_w %></td>
+                   <td><%= product.dimension_l %></td>
+                   <td><%= product.dimension_h %></td>
+                   <%# <td><%= image_tag "#{product.img_file}.jpg", size: "20" %>
+                   <%# Why is this not pulling an image over? Think it has to do with the path it's following. %>
+                   <td><%= product.img_file %></td>
+                   <td><%= product.quantity %></td>
+                   <td><%= product.category %></td>
+                   <td><%= link_to 'View Details', "/products/#{product.pid}" %></td>
+               </tr>
+            <% end %>
         <% end %>
     </tbody>
 </table>

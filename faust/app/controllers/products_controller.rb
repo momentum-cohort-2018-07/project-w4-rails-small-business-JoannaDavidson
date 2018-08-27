@@ -3,7 +3,7 @@ require 'csv'
 class ProductsController < ApplicationController
   def list
     @products = pull_products_from_csv
-  
+
   end
 
   def detail

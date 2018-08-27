@@ -1,7 +1,7 @@
 <p><%= link_to "Home", "/" %> > Item Detail</p>
 
 <h1><%= @product.item %></h1>
-<h2><%= @product.price %></h2>
+<h2>Price: $ <%= @product.price %></h2>
 <%= image_tag "#{@product.img_file}.jpg", size: "300" %>
 <dl>
    <dt>Product ID: <%= @product.pid %></dt>
