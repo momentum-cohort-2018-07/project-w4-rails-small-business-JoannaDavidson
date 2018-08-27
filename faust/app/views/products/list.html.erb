@@ -26,9 +26,9 @@
                    <td><%= product.item %></td>
                    <td><%= product.description %></td>
                    <td>$ <% if product.condition === "good" %>
-                         <%= discounted_price = product.price.to_i * 0.9 %></td>
+                         <%= discounted_price = product.price.to_i * 0.9 %> Clearance! -10% </td>
                          <% elsif product.condition === "average" %>
-                         <%= discounted_price = product.price.to_i * 0.8 %></td>
+                         <%= discounted_price = product.price.to_i * 0.8 %> Clearance! -20% </td>
                          <% else %>
                             <%= product.price %>   
                             <% end %>
