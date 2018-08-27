@@ -1,1 +1,13 @@
-<h1>Products#detail</h1>
+<p><%= link_to "Home", "/" %> > Item Detail</p>
+
+<h1><%= @product.item %></h1>
+<h2><%= @product.price %></h2>
+<%= image_tag "#{@product.img_file}.jpg", size: "300" %>
+<dl>
+   <dt>Product ID: <%= @product.pid %></dt>
+    <dd><%= @product.description %></dd>
+    <dd><%= @product.condition %></dd>
+    <dd><%= @product.dimension_w %>" W x <%= @product.dimension_l %>" L x <%= @product.dimension_h %>" H</dd>
+    <dd><%= @product.quantity %> item(s) in stock</dd>
+    <dd>Category: <%= @product.category %></dd>
+</dl>

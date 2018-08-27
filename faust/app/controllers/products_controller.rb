@@ -2,6 +2,18 @@ require 'csv'
 
 class ProductsController < ApplicationController
   def list
+    @products = pull_products_from_csv
+  
+  end
+
+  def detail
+    @products = pull_products_from_csv
+    @product = @products.find {|p| p.pid == params[:id]}
+  
+  end
+
+  def pull_products_from_csv
+
     @products = []
 
     CSV.foreach(Rails.root + 'app/assets/data/faust_inventory.csv', headers: true) do |row|
@@ -20,13 +32,8 @@ class ProductsController < ApplicationController
       product.category = row.to_h["category"]
 
       @products << product
-
     end
+
+    @products
   end
-
-  # def detail
-  #   @details = []
-
-
-  # end
 end

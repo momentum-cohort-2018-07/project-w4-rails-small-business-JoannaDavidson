@@ -1,7 +1,5 @@
 <h1>Products#list</h1>
 
-<%# @products %>
-
 <table>
     <thead>
         <tr>
@@ -16,6 +14,7 @@
             <th> Image </th>
             <th> Qty. </th>
             <th> Category </th>
+            <th> Details </th>
         </tr>
     </thead>
     <tbody>
@@ -29,13 +28,21 @@
                 <td><%= product.dimension_w %></td>
                 <td><%= product.dimension_l %></td>
                 <td><%= product.dimension_h %></td>
+                <%# <td>image_tag "#{@product.img_file}", size: "20" %>
+                <%# Why is this not pulling an image over? Think it has to do with the path it's following. %>
                 <td><%= product.img_file %></td>
-                <%# <td><%= image_tag("/app/assets/images/#{product.img_file}.jpg", size: "20", class: "product_tn") </td> %>
                 <td><%= product.quantity %></td>
                 <td><%= product.category %></td>
+                <td><%= link_to 'View Details', "/products/#{product.pid}" %></td>
             </tr>
         <% end %>
     </tbody>
 </table>
 
-<% %>
+<%# To do-- create links to product detail pages. %>
+<%# --  %>
+<%# Secondarily To do-- Make table headers sortable%>
+
+
+
+
