@@ -1,0 +1,57 @@
+<h1>Products#list</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th> Product ID </th>
+            <th> Item </th>
+            <th> Description </th>
+            <th> Price </th>
+            <th> Condition </th>
+            <th> Width </th>
+            <th> Length </th>
+            <th> Height </th>
+            <th> Image </th>
+            <th> Qty. </th>
+            <th> Category </th>
+            <th> Details </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @products.each do |product| %>
+            <% if product.quantity === "0"
+            else %>
+               <tr>
+                   <td><%= product.pid %></td>
+                   <td><%= product.item %></td>
+                   <td><%= product.description %></td>
+                   <td>$ <% if product.condition === "good" %>
+                         <%= discounted_price = product.price.to_i * 0.9 %> Clearance! -10% </td>
+                         <% elsif product.condition === "average" %>
+                         <%= discounted_price = product.price.to_i * 0.8 %> Clearance! -20% </td>
+                         <% else %>
+                            <%= product.price %>   
+                            <% end %>
+                   <td><%= product.condition %></td>
+                   <td><%= product.dimension_w %></td>
+                   <td><%= product.dimension_l %></td>
+                   <td><%= product.dimension_h %></td>
+                   <%# <td><%= image_tag "#{product.img_file}.jpg", size: "20" %>
+                   <%# Why is this not pulling an image over? Think it has to do with the path it's following. %>
+                   <td><%= product.img_file %></td>
+                   <td><%= product.quantity %></td>
+                   <td><%= product.category %></td>
+                   <td><%= link_to 'View Details', "/products/#{product.pid}" %></td>
+               </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
+
+<%# To do-- create links to product detail pages. %>
+<%# --  %>
+<%# Secondarily To do-- Make table headers sortable%>
+
+
+
+
